@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Usuarios, Mensajes, Salas
 from .forms import UsuariosForms, MesajesForms, SalasForms, UsuSalaForms, Usu_Salas
+from .serializers import UsuariosSerializer, MensajesSerializer, UsuSalSerializer, SalasSerializer
+from rest_framewor import generic
 
 
 def indice(request):
@@ -82,3 +84,28 @@ def listarSalas(request):
             print(result)
         contexto = {'consultas': result}
     return render(request,'sala/salas.html',contexto)
+
+class UsuariosList(generic.ListCreateAPIView):
+    queryset = Usuarios.objects.all()
+    serializer_class = UsuSalSerializer
+class UsuariosDetail(generic.RestrieveUpdateDestroyAPIView):
+    queryset = Usuarios.objects.all()
+    serializer_class = UsuariosSerializer
+class SalasList(generic.ListCreateAPIView):
+    queryset = Salas.objects.all()
+    serializer_class = SalasSerializer
+class SalasDetail(generic.RestrieveUpdateDestroyAPIView):
+    queryset = Salas.objects.all()
+    serializer_class = Salas
+class MesajesList(generic.ListCreateAPIView):
+    queryset = Mensajes.objects.all()
+    serializer_class = MensajesSerializer
+class MensajesDetail(generic.RestrieveUpdateDestroyAPIView):
+    queryset = Mensajes.objects.all()
+    serializer_class = MensajesSerializer
+class UsuSalaList(generic.ListCreateAPIView):
+    queryset = Usu_Salas.objects.all()
+    serializer_class = UsuSalSerializer
+class UsuSalaDetail(generic.RestrieveUpdateDestroyAPIView):
+    queryset = Usu_Salas.objects.all()
+    serializer_class = UsuSalSerializer

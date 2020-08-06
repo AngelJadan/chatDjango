@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from sala.views import login, indice, iniUser, regUsuario, envSms, \
-    listarSalas
+    listarSalas, UsuariosList, UsuariosDetail, SalasList, SalasDetail, MesajesList, MensajesDetail, \
+    UsuSalaList, UsuSalaDetail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +27,7 @@ urlpatterns = [
     path('iniUser/',iniUser),
     path('registro/',regUsuario,name='registro'),
     path('envSms/',envSms,name="envSms"),
-    path('lsalas/',listarSalas,name='lsalas')
+    path('lsalas/',listarSalas,name='lsalas'),
+    path('usuarios/',UsuariosList.as_view()),
 
 ]
