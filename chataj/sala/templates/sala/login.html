@@ -1,0 +1,19 @@
+{% extends 'sala/principal.html' %}
+
+{% block title %}
+Inicio de sesion
+{% endblock title %}
+{% block content %}
+<div class="wrapper fadeInDown">
+        <div id="formContent">
+            <form action="/iniUser" id="isesion" name="isesion" multimethod="GET">
+              <input type="text" id="user" class="fadeIn second" name="user" placeholder="Usuario">
+              <input type="password" id="pass" class="fadeIn third" name="pass" placeholder="Contraseña">
+              <input type="submit" class="fadeIn fourth" value="Acceder">
+            </form>
+    <div id="formFooter">
+      <a href="#">Recuperar Contraseña</a>
+      <br>
+      <a href="/registro">Registrar</a>
+    </div>
+{% endblock  %}

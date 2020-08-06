@@ -1,0 +1,75 @@
+{% extends 'sala/principal.html' %}
+{% block title %}
+{% endblock title %}
+{% block content %}
+<h3>Chats</h3>
+        <script></script>
+        <div>
+            {% for usuario in usuarios %}
+            <h5>Bienvenido: {{ usuario.usu_nombre }} {{ usuario.usu_apellido}}</h5>
+            {% endfor %}
+            <button onclick="cSala()">Crear nueva Sala</button>
+            <script>         
+                function habilitar(){
+                    document.getElementById("sms").style.visibility = "visible";
+                }
+                function cSala(){
+                    document.getElementById("nsala").style.visibility = "visible";
+                }     
+            </script>
+            <button onclick="habilitar()" onclick="listarContactos()">Enviar mensaje nuevo</button>
+        </div>
+        <div id="nsala" name="nsala" style="visibility: hidden">
+            <form id="form" name="form" action="crearSala" method="POST">
+                {% for usuario in usuarios %}
+                <h5 id="_id" name="id" style="visibility: hidden"> {{ usuario.usu_id}}</h5>
+                {% endfor %}
+                <label>Código de la sala</label>
+                <input id="" name="cod" type="text">
+                <input type="submit" value="Crear sala">
+            </form>
+        </div>
+        <div>
+        <p></p>
+        </div>
+        <div id="sms" name="sms" style = "visibility: hidden">
+            <label>Contacto: </label>
+            <script>
+            </script>
+            <form action="#" method="POST">
+                <input type="text" id="contactos">
+                <input type="text" placeholder="Mensaje" >
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <label>Contacto o grupo</label>
+                    </td>
+                    <td>
+                        <label>Mensaje</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Juan</label>
+                    </td>
+                    <td>
+                        <table>
+                            <tbody>
+                                <tr>
+                                   <label>Hola amigos</label>
+                                </tr>
+                                <br>
+                                <tr>
+                                    <input>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        <div>
+{% endblock content %}

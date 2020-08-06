@@ -1,0 +1,9 @@
+{% extends 'sala/principal.html' %}
+{% block content %}
+{% for item in consultas %}
+    <br>
+    {% for i in item %}
+        {{i}}
+    {% endfor %}
+{% endfor %}
+{% endblock content %}

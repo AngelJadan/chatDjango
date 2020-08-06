@@ -1,0 +1,12 @@
+{% extends 'sala/principal.html' %}
+{% block title %}
+Registro
+{% endblock title %}
+{% block content %}
+<a href="/login">Login</a>
+<form method="POST">
+{% csrf_token %}
+{{ form }}
+<input type="submit" value="Registrar">
+</form>
+{% endblock content %}
